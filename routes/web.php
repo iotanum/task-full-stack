@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/random_user', 'UserController@getRandomUser');
+Route::get('/users', 'UserController@getUser');
+Route::put('/remove/{username}', 'UserController@removeUser');
