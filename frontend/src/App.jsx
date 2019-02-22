@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import config from '../src/config'
+import {UsersTable} from './components/organisms/UsersTable'
 
 class App extends Component {
 
@@ -14,9 +15,7 @@ class App extends Component {
       .then(response => {
         const promise = response.json()
         promise.then(value => {
-          this.setState({users: value}, () => {
-            console.log(this.state.users)
-          })
+          this.setState({users: value})
         })
       })
   }
@@ -24,7 +23,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <button type="button" className="btn btn-primary">Primary</button>
+      <div className="homepageTitleWrapper">
+      <h1 className="homepageTitle"> task-full-stack </h1>
+      </div>
+      <div className="usersTableWrapper">
+      <div className="usersTableContentWrapper">
+        <UsersTable users={this.state.users}/>
+      </div>      
+      </div>      
+      
       </div>
     );
   }
