@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\DB;
 use App\User;
 
 class UserController extends Controller
@@ -43,10 +42,8 @@ class UserController extends Controller
     {
 
     	$usersArray = $this->getRandomUser($seed=True);
-#    	$items = array();
 
     	foreach($usersArray as $id => $user) {
-#    		$items[] = $user['username'];
             $userData = User::create([
     		  'name' => $user['name'],
     		  'username' => $user['username'],
@@ -63,10 +60,10 @@ class UserController extends Controller
     		  'company_catchPhrase' => $user['company']['catchPhrase'],
     		  'company_bs' => $user['company']['bs']
             ]);
+
             $userData -> save();
         }
 
-#    	return $items;
     	return json_encode('Successfuly seeded the database!');
     }
 
@@ -74,6 +71,7 @@ class UserController extends Controller
     {
 
         return User::all() -> toJson();
+
     }
 
     public function removeUser(Request $request, $username)
