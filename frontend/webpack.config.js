@@ -5,14 +5,6 @@ const config = require('./src/config')
 
 console.log(chalk.bold(`Build enviroment: ${chalk.green(config.env)}`))
 
-const pages = [
-  new HtmlWebpackPlugin({
-    filename: 'index.html',
-    template: './src/index.html',
-    inject: true,
-    chunks: ['index'],
-  }),
-]
 module.exports = {
   mode: config.isDev ? 'development' : 'production',
 
@@ -197,5 +189,12 @@ module.exports = {
     noInfo: false,
   },
 
-  plugins: [...pages],
+  plugins: [
+    new HtmlWebpackPlugin({
+    filename: 'index.html',
+    template: './src/index.html',
+    inject: true,
+    chunks: ['index'],
+  }),
+],
 }
