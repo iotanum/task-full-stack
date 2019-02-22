@@ -6,6 +6,33 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
 #root {
     height: 100%;
+}
+.App {
+    height: 100%;
+}
+.homepageTitleWrapper{
+    height: 180px;
+    padding-top: 20px;
+}
+
+.homepageTitle{
+    text-align: center;
+}
+
+.usersTableContentWrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+.usersTableWrapper {
+    padding: 0 50px;
+}
+.usersTable {
+    min-width: 1400px;
+}
+
+.userTableRowDelete {
+    margin-left: 3px;
 }
