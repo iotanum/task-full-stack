@@ -1,38 +1,22 @@
 import React, { Component } from 'react';
-import config from '../src/config'
-import {UsersTable} from './components/organisms/UsersTable'
+import UsersTablePage from './components/pages/UserTablePage'
+import UserInfoPage from './components/pages/UserInfoPage'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
-
-  constructor(props) {
-    super(props)
-    this.state= {
-      users: []
-    }
-  }
-  componentDidMount() {
-    fetch(`${config.apiUrl}/users`)
-      .then(response => {
-        const promise = response.json()
-        promise.then(value => {
-          this.setState({users: value})
-        })
-      })
-  }
-  
   render() {
     return (
-      <div className="App">
-      <div className="homepageTitleWrapper">
-      <h1 className="homepageTitle"> task-full-stack </h1>
-      </div>
-      <div className="usersTableWrapper">
-      <div className="usersTableContentWrapper">
-        <UsersTable users={this.state.users}/>
-      </div>      
-      </div>      
-      
-      </div>
+      <Router>
+        <div className="App">
+          <div className="homepageTitleWrapper">
+            <h1 className="homepageTitle"> task-full-stack </h1>
+          </div>
+          <div className="content">
+            <Route exact path="/" component={UsersTablePage}/>
+            <Route exact path="/user" component={UserInfoPage}/>
+          </div>  
+        </div>
+      </Router>
     );
   }
 }
