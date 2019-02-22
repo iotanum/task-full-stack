@@ -13,22 +13,22 @@ class CreateUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('user', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->text('name');
             $table->text('username');
             $table->text('email');
-            $table->text('address_street');
-            $table->text('address_suite');
-            $table->text('address_city');
-            $table->text('address_zipcode');
-            $table->text('geo_lat');
-            $table->text('geo_lng');
-            $table->text('phone');
-            $table->text('website');
-            $table->text('company_name');
-            $table->text('company_catchPhrase');
-            $table->text('company_bs');
+            $table->text('address_street') -> nullable();
+            $table->text('address_suite') -> nullable();
+            $table->text('address_city') -> nullable();
+            $table->text('address_zipcode') -> nullable();
+            $table->text('geo_lat') -> nullable();
+            $table->text('geo_lng') -> nullable();
+            $table->text('phone') -> nullable();
+            $table->text('website') -> nullable();
+            $table->text('company_name') -> nullable();
+            $table->text('company_catchPhrase') -> nullable();
+            $table->text('company_bs') -> nullable();
             $table->timestamps();
         });
     }
