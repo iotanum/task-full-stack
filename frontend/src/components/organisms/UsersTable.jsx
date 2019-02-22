@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {UsersTableRow} from '../molecules/UsersTableRow'
 
 export const UsersTable = ({users}) => (
@@ -9,10 +9,7 @@ export const UsersTable = ({users}) => (
             <th scope="col">Name</th>
             <th scope="col">Username</th> 
             <th scope="col">Email</th>
-            <th scope="col">City</th>
             <th scope="col">Phone</th>
-            <th scope="col">Website</th>
-            <th scope="col">Company Name</th>
             <th scope="col"></th>
         </tr>
         </thead>

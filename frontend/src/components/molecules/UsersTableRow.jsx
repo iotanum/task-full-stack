@@ -6,13 +6,10 @@ export const UsersTableRow = ({user, index, deleteFunction}) => (
         <td>{user.name}</td> 
         <td>{user.username}</td>
         <td>{user.email}</td>
-        <td>{user.address_city}</td>
         <td>{user.phone}</td>
-        <td>{user.website}</td>
-        <td>{user.company_name}</td>
         <td>
-            <button type="button" class="btn btn-info">Edit</button>
-            <button type="button" onClick={deleteFunction} class="btn btn-danger userTableRowDelete">Delete</button>
+            <button type="button" className="btn btn-info">View</button>
+            <button type="button" onClick={deleteFunction} className="btn btn-danger userTableRowDelete">Delete</button>
         </td>
     </tr>
 )
