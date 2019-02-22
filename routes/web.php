@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/random_user', 'UserController@getRandomUser');
-Route::get('/users', 'UserController@getUser');
-Route::put('/remove/{username}', 'UserController@removeUser');
+Route::get('/get-random-user', 'UserController@getRandomUser');
+Route::get('/seed', 'UserController@seed');
+Route::get('/users', 'UserController@getUsers');
