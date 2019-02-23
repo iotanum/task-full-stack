@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import config from '../../config'
+import { UserForm } from '../organisms/UserForm'
 
 class UserInfoPage extends Component {
 
@@ -11,12 +12,10 @@ class UserInfoPage extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
     fetch(`${config.apiUrl}/user/${this.props.match.params.id}/view`)
       .then(response => {
         const promise = response.json()
         promise.then(value => {
-          console.log(value)
           this.setState({ user: value })
         })
       })
@@ -25,7 +24,9 @@ class UserInfoPage extends Component {
   render() {
     return (
       <div className="contentWrapper">
-        <h2>{JSON.stringify(this.state.user)}</h2>
+        <div className="user-form-wrapper">
+          <UserForm user={this.state.user}></UserForm>
+        </div>
       </div>
     );
   }
