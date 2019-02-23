@@ -42,3 +42,65 @@ html, body {
 .userTableRowDelete {
     margin-left: 3px;
 }
+
+.error-message-wrapper {
+    display: flex;
+    height: 15px;
+    .error-message {
+        color: red;
+        font-size: 11px;
+    }
+}
+.input-field {
+    &.invalid {
+        border: 1px solid red;
+    }
+}
+
+
+.user-form-wrapper {
+    padding: 0 30px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+
+    .user-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .user-form-inputs-wrapper {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            flex-wrap: wrap;
+            
+            .user-form-first-column {
+                width: 45%;
+                min-width: 250px;
+            }
+            
+            .user-form-second-column {
+                width: 45%;
+                min-width: 250px;
+                margin-left: 20px;
+            }
+            @media only screen and (max-width: 650px) {
+                justify-content: center;
+                .user-form-first-column {
+                    width: 100%;
+                }
+                .user-form-second-column {
+                    width: 100%;
+                    margin-left: 0;
+                }
+            }
+        }
+
+        button {
+            width: 100%;
+            max-width: 150px;
+            margin-top: 25px;
+        }
+    }
+}
