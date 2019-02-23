@@ -74,11 +74,38 @@ class UserController extends Controller
 
     }
 
-    public function removeUser(Request $request, $username)
+    public function removeUser($userId)
     {
 
-    	$username = $request->username;
-    	return $username -> toJson(); 
+        $user = User::find($userId);
+
+        if ($user) {
+
+            $user -> delete();
+    	   return json_encode('User was successfuly deleted!');
+
+        } else {
+
+            return json_encode('User does not exist!');
+
+        }
+
+    }
+
+    public function viewUser($userId)
+    {
+
+        $user = User::find($userId);
+
+        if ($user) {
+
+            return $user -> toJson();
+
+        } else {
+
+            return json_encode('User does not exist!');
+
+        }
     }
 
 }

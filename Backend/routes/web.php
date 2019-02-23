@@ -14,3 +14,5 @@
 Route::get('/get-random-user', 'UserController@getRandomUser');
 Route::get('/seed', 'UserController@seed');
 Route::get('/users', array('middleware' => 'cors', 'uses' => 'UserController@getUsers'));
+Route::get('/user/{id}/remove', 'UserController@removeUser');
+Route::get('/user/{id}/view', 'UserController@viewUser');
