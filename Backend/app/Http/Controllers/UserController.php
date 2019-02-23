@@ -108,4 +108,10 @@ class UserController extends Controller
         }
     }
 
+    public function addUser($users)
+    {
+
+        return null;
+
+    }
 }
