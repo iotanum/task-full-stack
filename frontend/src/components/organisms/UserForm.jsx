@@ -20,13 +20,13 @@ export class UserForm extends React.Component {
         if (isEmpty(errors))
         {
             const userPayload = { 
-                id: user.id, 
+                id: user.id,
                 ...getFormData("user-form") 
             }
             
-            fetch(`${config.apiUrl}/user`, {
+            fetch(`${config.apiUrl}/user/${userPayload.id}/update`, {
                 method: "POST", 
-                body: JSON.stringify(userPayload)
+                body: JSON.stringify(userPayload),
             })
             .then(response => {
                 const promise = response.json()
