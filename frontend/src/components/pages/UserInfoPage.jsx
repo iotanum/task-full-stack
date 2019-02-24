@@ -12,7 +12,11 @@ class UserInfoPage extends Component {
   }
 
   componentDidMount() {
-    fetch(`${config.apiUrl}/user/${this.props.match.params.id}/view`)
+    var url_string = window.location.href
+    var url = new URL(url_string)
+    var id = url.searchParams.get("id")
+
+    fetch(`${config.apiUrl}/user/${id}/view`)
       .then(response => {
         const promise = response.json()
         promise.then(value => {
@@ -20,6 +24,7 @@ class UserInfoPage extends Component {
         })
       })
   }
+
   
   render() {
     return (

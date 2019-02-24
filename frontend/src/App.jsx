@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import UsersTablePage from './components/pages/UserTablePage'
 import UserInfoPage from './components/pages/UserInfoPage'
+import UserAddPage from './components/pages/UserAddPage'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
@@ -13,7 +14,8 @@ class App extends Component {
           </div>
           <div className="content">
             <Route exact path="/" component={UsersTablePage}/>
-            <Route path="/user/:id" component={UserInfoPage}/>
+            <Route exact path="/user/edit" component={UserInfoPage}/>
+            <Route exact path="/user/add" component={UserAddPage}/>
           </div>  
         </div>
       </Router>
