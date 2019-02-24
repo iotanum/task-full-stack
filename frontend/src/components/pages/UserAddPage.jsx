@@ -14,7 +14,7 @@ class UserAddPage extends Component {
     return (
       <div className="contentWrapper">
         <div className="user-form-wrapper">
-          <UserForm/>
+          <UserForm submitButtonText='Add'/>
         </div>
       </div>
     );

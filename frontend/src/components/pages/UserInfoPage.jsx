@@ -30,7 +30,7 @@ class UserInfoPage extends Component {
     return (
       <div className="contentWrapper">
         <div className="user-form-wrapper">
-          <UserForm user={this.state.user}></UserForm>
+          <UserForm user={this.state.user} submitButtonText='Update'></UserForm>
         </div>
       </div>
     );

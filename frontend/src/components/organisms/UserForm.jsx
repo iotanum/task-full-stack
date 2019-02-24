@@ -38,7 +38,7 @@ export class UserForm extends React.Component {
     }
 
     render() {
-        const { user } = this.props
+        const { user, submitButtonText } = this.props
         const { errors } = this.state
         return (
             <form className="user-form" id="user-form" onSubmit={this.onSubmit}>
@@ -62,6 +62,6 @@ export class UserForm extends React.Component {
                     <InputField label='Company Bs' name='company_bs' id='company_bs' type='text' rules="textLength" value={get(user, 'company_bs', '')} error={get(errors, 'company_bs[0]', '')}></InputField>
                 </div>
             </div>
-                <button className='btn btn-primary' type='submit'>Add</button>
+                <button className='btn btn-primary' type='submit'>{submitButtonText}</button>
             </form>
         )}}
