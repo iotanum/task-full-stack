@@ -3,6 +3,7 @@ import { get, isEmpty } from 'lodash'
 import {InputField} from '../molecules/InputField'
 import {validateForm, getFormData} from '../../resources/utils/validations'
 import config from '../../config'
+import { Link } from 'react-router-dom'
 
 export class UserForm extends React.Component {
     constructor(props) {
@@ -59,6 +60,7 @@ export class UserForm extends React.Component {
         const { errors } = this.state
         return (
             <form className="user-form" id="user-form" onSubmit={this.onSubmit}>
+            <Link to="/" className='home-button'><button type="button" className="btn btn-info">Home</button></Link>
             <h2>{this.state.response}</h2>
             <div className="user-form-inputs-wrapper">
                 <div className="user-form-first-column">
