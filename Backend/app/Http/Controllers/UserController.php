@@ -108,17 +108,53 @@ class UserController extends Controller
         }
     }
 
-    public function addUser($userInfo)
+    public function addUser(Request $request)
     {
 
-        return null;
+        $userData = json_decode($request->getContent(), true);
+        try {
 
+            $user = User::create([
+                'name' => $userData['name'],
+                'username' => $userData['username'],
+                'email' => $userData['email']
+            ]);
+    
+            $user -> save();
+
+            foreach($userData as $field => $data) {
+                if ($data != "") {
+    
+                    $user -> $field = $data;
+                    $user -> save();
+    
+                }
+            }
+
+            return json_encode('Successfuly added a user!');
+
+        } catch(\Illuminate\Database\QueryException $e) {
+
+            $errorStatusCode = $e->errorInfo[0];
+
+            if ($errorStatusCode == 23000) {
+
+                return json_encode('User already exists!');
+
+            } else {
+
+                return json_encode('Unkown error occured!');
+
+            }
+            
+        }
     }
 
     public function updateUser(Request $request, $userId)
     {
+
         $userData = json_decode($request->getContent(), true);
-        $user = User::find($userData['id']);
+        $user = User::find($userId);
 
         foreach($userData as $field => $data) {
             $user -> $field = $data;
@@ -126,5 +162,6 @@ class UserController extends Controller
         }
         
         return json_encode('Successfuly updated user!');
+
     }
 }
