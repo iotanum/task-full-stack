@@ -33,66 +33,6 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g)$/,
-        exclude: /\/fonts\//,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'img/[name].[hash:16].[ext]',
-            },
-          },
-          {
-            loader: 'sharp-image-webpack-loader',
-            options: {
-              cache: false,
-              withMetadata: true,
-              jpegQuality: 80,
-              jpegProgressive: true,
-              pngProgressive: true,
-              pngCompressionLevel: 6,
-              webpQuality: 80,
-              webpAlphaQuality: 100,
-              tiffQuality: 80,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(svg|gif)$/,
-        exclude: /\/fonts\//,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'img/[name].[hash:16].[ext]',
-            },
-          },
-        ],
-      },
-      {
-        test: /(\.eot|\.otf|\.woff|\.woff2|\.ttf|\/fonts\/.*\.svg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'fonts/[name].[hash:16].[ext]',
-            },
-          },
-        ],
-      },
-      {
-        test: /favicon\.ico$/,
-        use: [
-          {
-            loader: 'file-loader?name=[name].[ext]',
-            options: {
-              name: '[name].[ext]',
-            },
-          },
-        ],
-      },
-      {
         test: /\.css$/,
         use: [
           {
