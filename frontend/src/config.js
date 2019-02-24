@@ -5,7 +5,7 @@ const config = {
   env,
   isDev: env === 'development',
   isBrowser: typeof window !== 'undefined',
-  apiUrl: 'http://localhost:8000',
+  apiUrl: 'http://192.168.8.122:8000', //acording to your local IP address
 }
 
 module.exports = config
