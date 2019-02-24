@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "rm -rf dist && webpack",
+    "build": "rm -rf dist && SET NODE_ENV=production && webpack",
     "lint": "eslint src"
   },
   "dependencies": {
