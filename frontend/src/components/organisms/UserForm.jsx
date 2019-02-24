@@ -8,32 +8,49 @@ export class UserForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            errors: {}
+            errors: {},
+            response: ''
         }
     }
 
     onSubmit = (e) => {
         e.preventDefault()
-        const { user } = this.props
+        const { user, submitButtonText } = this.props
         const errors = validateForm("user-form")
         this.setState({errors: errors})
         if (isEmpty(errors))
         {
             const userPayload = { 
-                id: user.id,
+                id: get(user, 'id', ''),
                 ...getFormData("user-form") 
             }
             
-            fetch(`${config.apiUrl}/user/${userPayload.id}/update`, {
-                method: "POST", 
-                body: JSON.stringify(userPayload),
-            })
-            .then(response => {
-                const promise = response.json()
-                promise.then(value => {
-                    console.log(value)
+            if (submitButtonText === 'Update') {
+
+                fetch(`${config.apiUrl}/user/${userPayload.id}/update`, {
+                    method: "POST", 
+                    body: JSON.stringify(userPayload)
                 })
-            })
+                .then(response => {
+                    const promise = response.json()
+                    promise.then(value => {
+                        this.setState({response: value})
+                    })
+                })
+
+            } else if (submitButtonText === 'Add') {
+
+                fetch(`${config.apiUrl}/user/add`, {
+                    method: "POST", 
+                    body: JSON.stringify(userPayload)
+                })
+                .then(response => {
+                    const promise = response.json()
+                    promise.then(value => {
+                        this.setState({response: value})
+                    })
+                })
+            }
         }
     }
 
@@ -42,6 +59,7 @@ export class UserForm extends React.Component {
         const { errors } = this.state
         return (
             <form className="user-form" id="user-form" onSubmit={this.onSubmit}>
+            <h2>{this.state.response}</h2>
             <div className="user-form-inputs-wrapper">
                 <div className="user-form-first-column">
                     <InputField label='Name' name='name' id='name' type='text' rules="required,name" value={get(user, 'name', '')} error={get(errors, 'name[0]', '')}></InputField>
