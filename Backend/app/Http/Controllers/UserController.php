@@ -108,10 +108,23 @@ class UserController extends Controller
         }
     }
 
-    public function addUser($users)
+    public function addUser($userInfo)
     {
 
         return null;
 
+    }
+
+    public function updateUser(Request $request, $userId)
+    {
+        $userData = json_decode($request->getContent(), true);
+        $user = User::find($userData['id']);
+
+        foreach($userData as $field => $data) {
+            $user -> $field = $data;
+            $user -> save();
+        }
+        
+        return json_encode('Successfuly updated user!');
     }
 }
