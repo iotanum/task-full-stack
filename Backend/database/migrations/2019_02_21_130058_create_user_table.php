@@ -17,7 +17,7 @@ class CreateUserTable extends Migration
             $table->increments('id');
             $table->text('name');
             $table->text('username');
-            $table->text('email');
+            $table->text('email') -> unique();
             $table->text('address_street') -> nullable();
             $table->text('address_suite') -> nullable();
             $table->text('address_city') -> nullable();
