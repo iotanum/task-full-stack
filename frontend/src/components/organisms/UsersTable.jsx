@@ -1,7 +1,7 @@
 import React from 'react';
 import {UsersTableRow} from '../molecules/UsersTableRow'
 
-export const UsersTable = ({users}) => (
+export const UsersTable = ({users, updateUsers}) => (
     <table className="table table-primary usersTable">
         <thead>
         <tr>
@@ -15,7 +15,7 @@ export const UsersTable = ({users}) => (
         </thead>
         <tbody>
         {users.map((user, index) => {
-            return <UsersTableRow user={user} index={index+1} key={index+1}/>
+            return <UsersTableRow user={user} index={index+1} key={index+1} updateUsers={updateUsers}/>
         })}
         </tbody>
     </table>
