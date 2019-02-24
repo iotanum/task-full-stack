@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import config from '../../config'
 
-export const UsersTableRow = ({user, index, deleteFunction, viewFunction, updateUsers}) => (
+export const UsersTableRow = ({user, index, updateUsers}) => (
     <tr>
         <th>{index}</th>
         <td>{user.name}</td> 
@@ -12,7 +12,11 @@ export const UsersTableRow = ({user, index, deleteFunction, viewFunction, update
         <td>
             <Link to={`/user/edit?id=${user.id}`}><button type="button" className="btn btn-info">View</button></Link>
             <button type="button" onClick={() => {
-                fetch(`${config.apiUrl}/user/${user.id}/remove`)
+                const userPayload = {id: user.id}
+                fetch(`${config.apiUrl}/user/remove`, {
+                    method: 'POST',
+                    body: JSON.stringify(userPayload)
+                })
                 .then(response => {
                     const promise = response.json()
                     promise.then(value => {
@@ -23,13 +27,3 @@ export const UsersTableRow = ({user, index, deleteFunction, viewFunction, update
         </td>
     </tr>
 )
-
-function deleteFunction(id)
-{
-
-}
-
-function viewFunction(id)
-{
-    
-}

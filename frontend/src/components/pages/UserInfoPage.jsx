@@ -16,7 +16,7 @@ class UserInfoPage extends Component {
     var url = new URL(url_string)
     var id = url.searchParams.get("id")
 
-    fetch(`${config.apiUrl}/user/${id}/view`)
+    fetch(`${config.apiUrl}/user/${id}/info`)
       .then(response => {
         const promise = response.json()
         promise.then(value => {

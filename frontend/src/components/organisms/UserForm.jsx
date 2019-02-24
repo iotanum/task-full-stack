@@ -28,7 +28,7 @@ export class UserForm extends React.Component {
             
             if (submitButtonText === 'Update') {
 
-                fetch(`${config.apiUrl}/user/${userPayload.id}/update`, {
+                fetch(`${config.apiUrl}/user/update`, {
                     method: "POST", 
                     body: JSON.stringify(userPayload)
                 })
