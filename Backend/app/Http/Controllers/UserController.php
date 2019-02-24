@@ -172,4 +172,11 @@ class UserController extends Controller
         return json_encode('Successfuly updated user!');
 
     }
+
+    public function dropContents()
+    {
+
+        User::truncate();
+
+    }
 }
