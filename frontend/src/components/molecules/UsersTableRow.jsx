@@ -23,7 +23,7 @@ export const UsersTableRow = ({user, index, updateUsers}) => (
                         updateUsers()
                     })
                 })
-            }} className="btn btn-danger userTableRowDelete">Delete</button>
+            }} className="btn btn-danger user-table-row-delete">Delete</button>
         </td>
     </tr>
 )

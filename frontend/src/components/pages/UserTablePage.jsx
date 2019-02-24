@@ -59,7 +59,7 @@ class UsersTablePage extends Component {
   render() {
     return (
       <div className="App">
-        <div className="usersTableWrapper">
+        <div className="users-table-wrapper">
         <h2>{this.state.response}</h2>
           <div className="users-table-button-wrapper">
             <Link to={`/user/add`}><button type="button" className="btn btn-success add-button">Add</button></Link>
@@ -68,7 +68,7 @@ class UsersTablePage extends Component {
               <button type="button" onClick={this.seedTen} className="btn btn-success seed-button">Seed-10</button>
             </div>
           </div>
-          <div className="usersTableContentWrapper">
+          <div className="users-table-content-wrapper">
             <UsersTable users={this.state.users} updateUsers={this.updateUsers}/>
           </div>      
         </div>      

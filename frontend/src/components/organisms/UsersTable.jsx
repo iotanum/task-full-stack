@@ -2,7 +2,7 @@ import React from 'react';
 import {UsersTableRow} from '../molecules/UsersTableRow'
 
 export const UsersTable = ({users, updateUsers}) => (
-    <table className="table table-primary usersTable">
+    <table className="table table-primary users-table">
         <thead>
         <tr>
             <th scope="col">#</th>

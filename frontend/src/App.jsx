@@ -9,8 +9,8 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <div className="homepageTitleWrapper">
-            <h1 className="homepageTitle"> task-full-stack </h1>
+          <div className="home-page-title-wrapper">
+            <h1 className="home-page-title"> task-full-stack </h1>
           </div>
           <div className="content">
             <Route exact path="/" component={UsersTablePage}/>

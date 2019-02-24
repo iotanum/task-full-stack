@@ -13,20 +13,20 @@ html, body {
 .App {
     height: 100%;
 }
-.homepageTitleWrapper{
+.home-page-title-wrapper{
     height: 180px;
     padding-top: 20px;
 }
 
-.homepageTitle{
+.home-page-title{
     text-align: center;
 }
 
-.usersTableContentWrapper {
+.users-table-content-wrapper {
     width: 100%;
     overflow-x: auto;
 }
-.usersTableWrapper {
+.users-table-wrapper {
     text-align: center;
     padding: 0 15%;
 
@@ -38,11 +38,11 @@ html, body {
         padding: 0 5%;
     }
 }
-.usersTable {
+.users-table {
     min-width: 1000px;
 }
 
-.userTableRowDelete {
+.user-table-row-delete {
     margin-left: 3px;
 }
 
