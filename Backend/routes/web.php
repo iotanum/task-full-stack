@@ -12,7 +12,7 @@
 */
 
 Route::get('/get-random-user', 'UserController@getRandomUser');
-Route::get('/seed', 'UserController@seed');
+Route::get('/seed', array('middleware' => 'cors', 'uses' => 'UserController@seed'));
 Route::get('/users', array('middleware' => 'cors', 'uses' => 'UserController@getUsers'));
 Route::get('/user/{id}/remove', array('middleware' => 'cors', 'uses' => 'UserController@removeUser'));
 Route::get('/user/{id}/view', array('middleware' => 'cors', 'uses' => 'UserController@viewUser'));
