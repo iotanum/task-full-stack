@@ -11,8 +11,7 @@
 |
 */
 
-Route::get('/seed-random-user', array('middleware' => 'cors', 'uses' => 'UserController@seedOne'));
-Route::get('/seed', array('middleware' => 'cors', 'uses' => 'UserController@seed'));
+Route::get('/seed/{seedOne}', array('middleware' => 'cors', 'uses' => 'UserController@seed'));
 Route::get('/users', array('middleware' => 'cors', 'uses' => 'UserController@getUsers'));
 Route::get('/user/{id}/remove', array('middleware' => 'cors', 'uses' => 'UserController@removeUser'));
 Route::get('/user/{id}/view', array('middleware' => 'cors', 'uses' => 'UserController@viewUser'));
