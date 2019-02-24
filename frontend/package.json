@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "rm -rf dist && SET NODE_ENV=production && webpack"
+    "build": "SET NODE_ENV=production && webpack"
   },
   "dependencies": {
     "@babel/cli": "^7.1.2",
