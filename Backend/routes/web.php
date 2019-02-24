@@ -13,8 +13,8 @@
 
 Route::get('/seed/{seedOne}', array('middleware' => 'cors', 'uses' => 'UserController@seed'));
 Route::get('/users', array('middleware' => 'cors', 'uses' => 'UserController@getUsers'));
-Route::get('/user/{id}/remove', array('middleware' => 'cors', 'uses' => 'UserController@removeUser'));
-Route::get('/user/{id}/view', array('middleware' => 'cors', 'uses' => 'UserController@viewUser'));
 Route::get('/drop', array('middleware' => 'cors', 'uses' => 'UserController@dropContents'));
-Route::post('/user/{id}/update', array('middleware' => 'cors', 'uses' => 'UserController@updateUser'));
+Route::get('/user/{id}/info', array('middleware' => 'cors', 'uses' => 'UserController@viewUser'));
+Route::post('/user/remove', array('middleware' => 'cors', 'uses' => 'UserController@removeUser'));
+Route::post('/user/update', array('middleware' => 'cors', 'uses' => 'UserController@updateUser'));
 Route::post('/user/add', array('middleware' => 'cors', 'uses' => 'UserController@addUser'));

@@ -75,10 +75,10 @@ class UserController extends Controller
 
     }
 
-    public function removeUser($userId)
+    public function removeUser(Request $request)
     {
-
-        $user = User::find($userId);
+        $userId = json_decode($request->getContent(), true);
+        $user = User::find($userId['id']);
 
         if ($user) {
 
@@ -152,11 +152,11 @@ class UserController extends Controller
         }
     }
 
-    public function updateUser(Request $request, $userId)
+    public function updateUser(Request $request)
     {
 
         $userData = json_decode($request->getContent(), true);
-        $user = User::find($userId);
+        $user = User::find($userData['id']);
 
         foreach($userData as $field => $data) {
             $user -> $field = $data;
@@ -171,6 +171,7 @@ class UserController extends Controller
     {
 
         User::truncate();
+
         return json_encode("Successfuly cleaned the table!");
 
     }
