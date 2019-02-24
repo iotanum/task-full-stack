@@ -60,8 +60,10 @@ export class UserForm extends React.Component {
         const { errors } = this.state
         return (
             <form className="user-form" id="user-form" onSubmit={this.onSubmit}>
-            <Link to="/" className='home-button'><button type="button" className="btn btn-info">Home</button></Link>
             <h2>{this.state.response}</h2>
+            <div className="home-button-wrapper">
+                <Link to="/" className='home-button'><button type="button" className="btn btn-info">Home</button></Link>
+            </div>
             <div className="user-form-inputs-wrapper">
                 <div className="user-form-first-column">
                     <InputField label='Name' name='name' id='name' type='text' rules="required,name" value={get(user, 'name', '')} error={get(errors, 'name[0]', '')}></InputField>
