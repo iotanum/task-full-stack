@@ -105,7 +105,18 @@ html, body {
     }
 }
 
-.add-button {
-    margin-bottom: 2px;
-    min-width: 100px;
+.users-table-button-wrapper {
+    display: flex;
+
+    .add-button {
+        margin-bottom: 2px;
+        min-width: 100px;
+    }
+    
+    .seed-button {
+        margin-bottom: 2px;
+        min-width: 100px;
+        margin-left: auto;
+    }
 }
+
