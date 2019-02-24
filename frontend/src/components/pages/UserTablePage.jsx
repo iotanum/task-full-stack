@@ -25,11 +25,24 @@ class UsersTablePage extends Component {
       })
   }
   
+  seedUsers = () => {
+    fetch(`${config.apiUrl}/seed`)
+      .then(response => {
+        const promise = response.json()
+        promise.then(value => {
+          this.updateUsers()
+        })
+      })
+  }
+
   render() {
     return (
       <div className="App">
         <div className="usersTableWrapper">
-          <Link to={`/user/add`}><button type="button" className="btn btn-info add-button">Add</button></Link>
+          <div className="users-table-button-wrapper">
+            <Link to={`/user/add`}><button type="button" className="btn btn-success add-button">Add</button></Link>
+            <button type="button" onClick={this.seedUsers} className="btn btn-success seed-button">Seed</button>
+          </div>
           <div className="usersTableContentWrapper">
             <UsersTable users={this.state.users} updateUsers={this.updateUsers}/>
           </div>      
