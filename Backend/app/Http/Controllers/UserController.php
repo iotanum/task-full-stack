@@ -20,7 +20,7 @@ class UserController extends Controller
 
 	}
 
-    public function getRandomUser($seed=False) 
+    public function seedRandomUser($seed=False) 
     {
 
     	$usersArray = $this -> placeholderApiCall();
@@ -38,12 +38,20 @@ class UserController extends Controller
 
     }
 
-    public function seed()
+    public function seed($seedOne=False)
     {
 
-    	$usersArray = $this->getRandomUser($seed=True);
+        if (!$seedOne) {
 
-    	foreach($usersArray as $id => $user) {
+    	   $array = $this -> seedRandomUser($seed=True);
+
+        } else {
+
+            $array = $this -> seedRandomUser($seed=False)
+
+        }
+
+    	foreach($array as $id => $user) {
             $userData = User::create([
     		  'name' => $user['name'],
     		  'username' => $user['username'],
